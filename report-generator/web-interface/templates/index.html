@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PhD Report Generator</title>        
+    </head>
+
+    <body>
+        <h1>Duke PhD Report Generator</h1>
+        <p>
+            Welcome! This web application generates a comprehensive report based on the PhD exit and career outcome surveys.
+        </p>    
+        <hr>
+<!-- ======================================================================== -->
+<!-- FILE UPLOAD -->
+<!-- ======================================================================== -->
+        <h4>Upload PhD exit survey and career outcome survey</h4>
+        <form action="./customize" method="post" enctype="multipart/form-data">
+            Numeric version of survey
+            <br>
+            <input type="file" name="survey_num" multiple accept=".csv">
+            <br><br>
+            Text version of survey
+            <br>
+            <input type="file" name="survey_text" multiple accept=".csv">
+            <br><br>
+            <input type="submit" value="Upload">
+        </form>
+    </body>
+</html> 

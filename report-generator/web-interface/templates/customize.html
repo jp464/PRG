@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>PhD Report Generator</title>        
+    </head>
+
+    <body> 
+        <h1>Duke PhD Report Generator</h1>
+
+        <hr>
+<!-- ======================================================================== -->
+<!-- CHOOSE PROGRAM -->
+<!-- ======================================================================== -->
+        
+        <form action="./generate_report" method="post">
+        <h4>Select the program</h4>
+        
+        <select name="program" id="program" onchange="chooseProgram()">
+            <option value="" disable selected>--Choose Program--</option>
+            <option value="School">School (eg Fuqua, Medicine, Nicholas)</option>
+            <option value="Academic-division">Academic Division (eg Biological Sciences, Engineering, Humanities)</option>
+            <option value="Individual-programs">Individual Programs (eg Pathology, BME, Religion)</option>
+        </select>
+        
+        </br></br>
+        <div id="chosenProgram"></div>
+
+<!-- ======================================================================== -->
+<!-- CHOOSE YEARS -->
+<!-- ======================================================================== -->
+        <h4>Select the graduation years</h4>
+        <select name="year" id="year" multiple="multiple">
+            {% for item in years %}
+                <option>{{ item }}</option>
+            {% endfor %}
+        </select>
+
+        </br></br>
+        <input type="submit">
+        </form>
+        <script src="static/script.js"></script>
+
+    </body>
+</html> 
