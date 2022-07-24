@@ -1,0 +1,10 @@
+name: phd-report
+dependencies:
+  - flask
+  - scipy
+  - matplotlib
+  - pandas
+  - pathlib
+  - numpy
+  - pip:
+    - pylatex

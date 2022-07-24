@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, send_file
 import pandas as pd 
-from report import web_input 
+import web_input
 from latexCompiler.latexCompiler import latexCompiler
 
 
