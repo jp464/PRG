@@ -2,8 +2,9 @@
 
 ### Installation for Windows
 
-First, install [Anaconda](https://www.anaconda.com/products/distribution)to set up the phd-report environment. 
-Then, install [MiKTeX](https://miktex.org/howto/install-miktex) to set up the latex compiler. When using the installer, under settings, select "Yes" for "Install missing pacakages on-the-fly". After installation, plase check for [updates](https://miktex.org/howto/update-miktex).
+First, install [Anaconda](https://www.anaconda.com/products/distribution) to set up the phd-report environment. 
+
+Then, install [MiKTeX](https://miktex.org/howto/install-miktex) to set up the latex compiler. When using the installer, under settings, select "Yes" for "Install missing pacakages on-the-fly". After installation, please check for [updates](https://miktex.org/howto/update-miktex).
 
 Now, open the command prompt. 
 
