@@ -1,4 +1,4 @@
-name: phd-report
+name: PRG
 dependencies:
   - flask
   - scipy
