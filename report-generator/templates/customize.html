@@ -13,9 +13,11 @@
 <!-- ======================================================================== -->
 <!-- CHOOSE PROGRAM -->
 <!-- ======================================================================== -->
+
+        <h5>Note that you can use cmd/ctrl to select multiple options.</h5>
         
         <form action="./generate_report" method="post">
-        <h4>Select the program</h4>
+        <h4>Select at which level to generate the report</h4>
         
         <select name="program" id="program" onchange="chooseProgram()">
             <option value="" disable selected>--Choose Program--</option>
@@ -30,17 +32,48 @@
 <!-- ======================================================================== -->
 <!-- CHOOSE YEARS -->
 <!-- ======================================================================== -->
-        <h4>Select the graduation years</h4>
+        <h4>Select graduation year(s)</h4>
         <select name="year" id="year" multiple="multiple">
-            {% for item in years %}
+            {% for item in year %}
                 <option>{{ item }}</option>
             {% endfor %}
         </select>
 
-        </br></br>
-        <input type="submit">
-        </form>
-        <script src="static/script.js"></script>
+
+<!-- ======================================================================== -->
+<!-- CHOOSE GENDER -->
+<!-- ======================================================================== -->
+        <h4>Select gender(s).</h4>
+        <select name="gender" id="gender" multiple="multiple">
+            {% for item in gender %}
+                <option selected>{{ item }}</option>
+            {% endfor %}
+        </select>
+
+<!-- ======================================================================== -->
+<!-- CHOOSE RACE -->
+<!-- ======================================================================== -->
+        <h4>Select race(s).</h4>
+        <select name="race" id="race" multiple="multiple">
+            {% for item in race %}
+                <option selected>{{ item }}</option>
+            {% endfor %}
+        </select>
+
+<!-- ======================================================================== -->
+<!-- CHOOSE CITIZENSHIP -->
+<!-- ======================================================================== -->
+        <h4>Select citizenship(s).</h4>
+        <select name="citizenship" id="citizenship" multiple="multiple">
+            {% for item in citizenship %}
+                <option selected>{{ item }}</option>
+            {% endfor %}
+        </select>
+
+</br></br>
+<input type="submit">
+</form>
+<script src="static/script.js"></script>
 
     </body>
 </html> 
