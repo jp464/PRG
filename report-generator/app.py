@@ -1,11 +1,10 @@
-from flask import Flask, render_template, request, send_file
-import pandas as pd 
-import web_input
-from latexCompiler.latexCompiler import latexCompiler
+from flask import Flask, render_template, request
+import pandas as pd
+from prg import webInput, latexCompiler
 
 
 app = Flask(__name__)
-input = web_input.Input(None, None, None, None) # better way?
+input = webInput.Input() 
 
 @app.route("/")
 def main_page():
@@ -19,17 +18,37 @@ def customize_page():
     input.get_df_n(pd.read_csv(f_n, skiprows=[1, 2])) 
     input.get_df_t(pd.read_csv(f_t, skiprows=[1, 2])) 
 
-    years = input.df_t["Q77#2_1"][2:].dropna().unique()
-    years.sort()
-    years = [int(i) for i in years]
+    year = input.df_t["Q77#2_1"][2:].dropna().unique()
+    year.sort()
+    year = [int(i) for i in year]
 
-    return render_template("customize.html", years = years)
+    gender = input.df_t["Q65"][2:].dropna().unique()
+    gender.sort()
+
+    race = input.df_t["Q69"][2:].dropna().unique()
+    race_final = []
+    for i in race:
+        if "," in i:
+            race_final = race_final + i.split(",")
+        else:
+            race_final.append(i)
+    race_final = list(set(race_final))
+    race_final.sort()
+
+    citizenship = ["US", "International"]
+
+    return render_template("customize.html", year=year, gender=gender, race=race_final, citizenship=citizenship)
 
 @app.route("/generate_report", methods = ['POST'])
 def generate_report():
     programs = request.form.getlist("filter1")
-    years = request.form.getlist("year")
+    year = request.form.getlist("year")
+    gender = request.form.getlist("gender")
+    race = request.form.getlist("race")
+
+    citizenship = request.form.getlist("citizenship")
+    
     for i in programs:
-        compiler = latexCompiler(input.df_n.copy(), input.df_t.copy(), i, years)
+        compiler = latexCompiler(input.df_n.copy(), input.df_t.copy(), i, gender, race, citizenship, year)
         compiler.generateReport()
     return render_template("final.html")
