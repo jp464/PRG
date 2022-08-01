@@ -21,7 +21,7 @@ If you are unable to use git, download it from [here](https://github.com/jp464/P
 Create an environment:
 ```
 (base) C:/Users/username> cd Desktop
-(base) C:/Users/username/Desktop> cd PRG
+(base) C:/Users/username/Desktop> cd PRG (PRG-master if you downloaded the zip file)
 (base) C:/Users/username/Desktop/PRG> cd report-generator
 (base) c:/Users/username/PRG/report-generator> conda env create -f requirements.yml
 
